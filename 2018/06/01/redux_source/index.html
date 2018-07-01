@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>天生苑</title>
+  <title>redux源码分析 | 天生苑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="天生苑">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="第一次看源码，并没有想象中的难哈，主要是redux的源码比较少，理解起来也比较简单。看过之后，感觉更深入的理解了redux思想和函数式编程的理念，建议大家可以去看一下嘻嘻，看完之后肯定会有收获的。 我是对照着网上别人看过的源码笔记看的，写这篇文章的原因呢，是想总结一下，因为我记性比较差啦，算是做一个笔记，方便以后复习。 redux的源码中，有6个js文件，分别是：  index.js create">
+<meta name="keywords" content="redux,源码分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redux源码分析">
+<meta property="og:url" content="http://yoursite.com/2018/06/01/redux_source/index.html">
 <meta property="og:site_name" content="天生苑">
+<meta property="og:description" content="第一次看源码，并没有想象中的难哈，主要是redux的源码比较少，理解起来也比较简单。看过之后，感觉更深入的理解了redux思想和函数式编程的理念，建议大家可以去看一下嘻嘻，看完之后肯定会有收获的。 我是对照着网上别人看过的源码笔记看的，写这篇文章的原因呢，是想总结一下，因为我记性比较差啦，算是做一个笔记，方便以后复习。 redux的源码中，有6个js文件，分别是：  index.js create">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-01T16:16:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="天生苑">
+<meta name="twitter:title" content="redux源码分析">
+<meta name="twitter:description" content="第一次看源码，并没有想象中的难哈，主要是redux的源码比较少，理解起来也比较简单。看过之后，感觉更深入的理解了redux思想和函数式编程的理念，建议大家可以去看一下嘻嘻，看完之后肯定会有收获的。 我是对照着网上别人看过的源码笔记看的，写这篇文章的原因呢，是想总结一下，因为我记性比较差啦，算是做一个笔记，方便以后复习。 redux的源码中，有6个js文件，分别是：  index.js create">
   
     <link rel="alternative" href="/atom.xml" title="天生苑" type="application/atom+xml">
   
@@ -132,204 +137,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-react_redux_react-redux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-redux_source" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/25/react_redux_react-redux/">对React、Redux、React-Redux详细剖析</a>
-    </h1>
-  
-
-        
-        <a href="/2018/06/25/react_redux_react-redux/" class="archive-article-date">
-  	<time datetime="2018-06-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>相信很多新手朋友们对于React、Redux、React-Redux这三者之间的关系和区别肯定有很多不解和疑惑。这里我们就来详细的剖析一下它们吧。<br></p>
-<p><code>React</code>：负责组件的UI界面渲染；<br><br><code>Redux</code>：数据处理中心；<br><br><code>React-Redux</code>：连接组件和数据中心，也就是把React和Redux联系起来。<br></p>
-<h1 id="React"><a href="#React" class="headerlink" title="React"></a>React</h1><p>React主要就是用来实现UI界面的，是一个专注于view层的框架。对于一些小项目，如果数据的交互不是很多，完全可以只使用React就能很好的实现。<br></p>
-<p>在传统的页面开发模式中，需要多次的操作DOM来进行页面的更新，我们都知道对DOM的操作会造成极大的性能问题。而React的提出就是减少对DOM的操作来提升性能，也就是Virtual DOM。</p>
-<h4 id="Virtual-DOM"><a href="#Virtual-DOM" class="headerlink" title="Virtual DOM"></a>Virtual DOM</h4><p>Virtual DOM就相当于一个虚拟空间，React就是基于 Virtual DOM 来工作的。<br></p>
-<p>它的工作过程是：当有数据需要进行更新时，会先计算 Virtual DOM ，并和上一次的 Virtual DOM 做对比，得到DOM结构的区别，然后只会将需要变化的部分批量的更新到真实的DOM上。<br></p>
-<p>说到如何去计算Virtual DOM，在React里面，用到的是react-diff算法。我们都知道传统的diff算法是通过循环递归对每个节点进行依次对比，效率低下，算法复杂度达到了 O(n^3)，其中 n 是树中节点的总数。<br></p>
-<p>根据react diff策略:<br></p>
-<ol>
-<li>Web UI 中 DOM 节点跨层级的移动操作特别少，可以忽略不计;</li>
-<li>拥有相同类的两个组件将会生成相似的树形结构，拥有不同类的两个组件将会生成不同的树形结构;</li>
-<li>对于同一层级的一组子节点，它们可以通过唯一 id 进行区分。</li>
-</ol>
-<p>React 分别对 tree diff、component diff 以及 element diff 进行了算法优化：<br></p>
-<ol>
-<li><code>tree diff</code>：对树进行分层比较，两棵树只会对同一层次的节点进行比较</li>
-<li><code>component diff</code>：</li>
-</ol>
-<ul>
-<li>如果是同一类型的组件，按照原策略继续比较 virtual DOM tree。</li>
-<li>如果不是，则将该组件判断为 dirty component，从而替换整个组件下的所有子节点。</li>
-<li>对于同一类型的组件，有可能其 Virtual DOM 没有任何变化，如果能够确切的知道这点那可以节省大量的 diff 运算时间，因此 React 允许用户通过 shouldComponentUpdate() 来判断该组件是否需要进行 diff。</li>
-</ul>
-<ol start="3">
-<li><code>element diff</code>：当节点处于同一层级时，React diff 提供了三种节点操作，分别为：插入、移动、删除。</li>
-</ol>
-<p>这是整个react diff算法的比较流程图:<br><br><img src="https://user-gold-cdn.xitu.io/2018/6/23/1642cc069b5aceec?w=1438&amp;h=832&amp;f=png&amp;s=198431" alt="react diff"></p>
-<h4 id="React生命周期"><a href="#React生命周期" class="headerlink" title="React生命周期"></a>React生命周期</h4><p>React总共有10个周期函数（render重复一次），这10个函数可以满足我们所有对组件操作的需求，利用的好可以提高开发效率和组件性能。</p>
-<p>一、组件在初始化时会触发5个钩子函数：</p>
-<ol>
-<li><code>getDefaultProps()</code></li>
-</ol>
-<p>设置默认的props，es6中用 <code>static dufaultProps={}</code> 设置组件的默认属性。在整个生命周期只执行一次。</p>
-<ol start="2">
-<li><code>getInitialState()</code></li>
-</ol>
-<p>在使用es6的class语法时是没有这个钩子函数的，可以直接在constructor中定义this.state。此时可以访问this.props。</p>
-<ol start="3">
-<li><code>componentWillMount()</code>  ajax数据的拉取操作，定时器的启动。</li>
-</ol>
-<p>组件初始化时调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改state。</p>
-<ol start="4">
-<li><code>render()</code></li>
-</ol>
-<p>React最重要的步骤，创建虚拟dom，进行diff算法，更新dom树都在此进行。此时就不能更改state了。</p>
-<ol start="5">
-<li><code>componentDidMount()</code>    动画的启动，输入框自动聚焦</li>
-</ol>
-<p>组件渲染之后调用，可以通过this.getDOMNode()获取和操作dom节点，只调用一次。</p>
-<p>二、在更新时也会触发5个钩子函数：</p>
-<ol start="6">
-<li><code>componentWillReceivePorps(nextProps)</code></li>
-</ol>
-<p>组件初始化时不调用，组件接受新的props时调用。不管父组件传递给子组件的props有没有改变，都会触发。</p>
-<ol start="7">
-<li><code>shouldComponentUpdate(nextProps, nextState)</code></li>
-</ol>
-<p>React性能优化非常重要的一环。组件接受新的state或者props时调用，我们可以设置在此对比前后两个props和state是否相同，如果相同则返回false阻止更新，因为相同的属性状态一定会生成相同的dom树，这样就不需要创造新的dom树和旧的dom树进行diff算法对比，节省大量性能，尤其是在dom结构复杂的时候。不过调用this.forceUpdate会跳过此步骤。</p>
-<ol start="8">
-<li><code>componentWillUpdate(nextProps, nextState)</code></li>
-</ol>
-<p>组件初始化时不调用，只有在组件将要更新时才调用，此时可以修改state</p>
-<ol start="9">
-<li><code>render()</code></li>
-</ol>
-<p>不多说</p>
-<ol start="10">
-<li><code>componentDidUpdate()</code></li>
-</ol>
-<p>组件初始化时不调用，组件更新完成后调用，此时可以获取dom节点。</p>
-<p>三、卸载钩子函数</p>
-<ol start="11">
-<li><code>componentWillUnmount()</code>   定时器的清除</li>
-</ol>
-<p>组件将要卸载时调用，一些事件监听和定时器需要在此时清除。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/6/23/1642cca46deb8072?w=1208&amp;h=1158&amp;f=png&amp;s=423380" alt=""></p>
-<h1 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h1><p>Redux是一种架构模式，是由flux发展而来的。</p>
-<h2 id="Redux三大原则"><a href="#Redux三大原则" class="headerlink" title="Redux三大原则"></a>Redux三大原则</h2><ol>
-<li>唯一数据源</li>
-<li>状态只读</li>
-<li>数据改变只能通过纯函数（reducer）完成</li>
-</ol>
-<h2 id="Redux核心api"><a href="#Redux核心api" class="headerlink" title="Redux核心api"></a>Redux核心api</h2><p>Redux主要由三部分组成：store，reducer，action。<br></p>
-<h3 id="store"><a href="#store" class="headerlink" title="store"></a>store</h3><p>Redux的核心是store，它由Redux提供的 createStore(reducer， defaultState) 这个方法生成，生成三个方法，getState(),dispatch(),subscrible()。<br></p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/6/23/1642cd9d8d014496?w=1551&amp;h=700&amp;f=png&amp;s=111941" alt="store"></p>
-<ul>
-<li>getState()：存储的数据，状态树；</li>
-<li>dispatch(action)：分发action，并返回一个action，这是唯一能改变store中数据的方式；</li>
-<li>subscrible(listener)：注册一个监听者，store发生变化的时候被调用。</li>
-</ul>
-<h3 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h3><p>reducer是一个纯函数，它根据previousState和action计算出新的state。<br><br>reducer(previousState,action)<br><img src="https://user-gold-cdn.xitu.io/2018/6/24/16432430f79dffb5?w=870&amp;h=456&amp;f=png&amp;s=30568" alt="reducer"></p>
-<h3 id="action"><a href="#action" class="headerlink" title="action"></a>action</h3><p>action本质上是一个JavaScript对象，其中必须包含一个type字段来表示将要执行的动作，其他的字段都可以根据需求来自定义。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const ADD_TODO = &apos;ADD_TODO&apos;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  type: ADD_TODO,</span><br><span class="line">  text: &apos;Build my first Redux app&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="整合"><a href="#整合" class="headerlink" title="整合"></a>整合</h2><p>他们三者之间的交互，可以由下图概括：<br><img src="https://user-gold-cdn.xitu.io/2018/6/24/1642fe4239346286?w=1188&amp;h=376&amp;f=png&amp;s=77652" alt=""></p>
-<h1 id="React-Redux"><a href="#React-Redux" class="headerlink" title="React-Redux"></a>React-Redux</h1><p>Redux 本身和React没有关系，只是数据处理中心，是React-Redux让他们联系在一起。<br></p>
-<p>React-rRedux提供两个方法：connect和Provider。<br></p>
-<h2 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h2><p>connect连接React组件和Redux store。connect实际上是一个高阶函数，返回一个新的已与 Redux store 连接的组件类。<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const VisibleTodoList = connect(</span><br><span class="line">  mapStateToProps,</span><br><span class="line">  mapDispatchToProps</span><br><span class="line">)(TodoList)</span><br></pre></td></tr></table></figure></p>
-<p>TodoList是 UI 组件，VisibleTodoList就是由 react-redux 通过connect方法自动生成的容器组件。</p>
-<ol>
-<li><code>mapStateToProps</code>：从Redux状态树中提取需要的部分作为props传递给当前的组件。</li>
-<li><code>mapDispatchToProps</code>：将需要绑定的响应事件（action）作为props传递到组件上。</li>
-</ol>
-<p><img src="https://user-gold-cdn.xitu.io/2018/6/24/164325cc2f6288e1?w=1034&amp;h=580&amp;f=png&amp;s=70989" alt=""></p>
-<h2 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h2><p>Provider实现store的全局访问，将store传给每个组件。<br></p>
-<p>原理：使用React的context，context可以实现跨组件之间的传递。<br></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>下图阐述了它们三者之间的工作流程：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/6/24/1643259f68138eed?w=2000&amp;h=964&amp;f=png&amp;s=178437" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">react-redux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/25/react_redux_react-redux/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-redux_source" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/01/redux_source/">redux源码分析</a>
+    <h1 class="article-title" itemprop="name">
+      redux源码分析
     </h1>
   
 
@@ -425,16 +240,79 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/01/redux_source/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/01/redux_source/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/06/25/react_redux_react-redux/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          对React、Redux、React-Redux详细剖析
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -449,13 +327,32 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#index"><span class="toc-number">1.</span> <span class="toc-text">index</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#createStore"><span class="toc-number">2.</span> <span class="toc-text">createStore</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#combineReducers"><span class="toc-number">3.</span> <span class="toc-text">combineReducers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bindActionCreators"><span class="toc-number">4.</span> <span class="toc-text">bindActionCreators</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#compose"><span class="toc-number">5.</span> <span class="toc-text">compose</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#applyMiddleware"><span class="toc-number">6.</span> <span class="toc-text">applyMiddleware</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">7.</span> <span class="toc-text">总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
 
 
+  
+  
+  
 
   
+
+  
+
   
 
 
@@ -478,8 +375,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
