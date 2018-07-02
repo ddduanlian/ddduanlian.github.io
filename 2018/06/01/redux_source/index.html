@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="天生苑">
 <meta property="og:description" content="第一次看源码，并没有想象中的难哈，主要是redux的源码比较少，理解起来也比较简单。看过之后，感觉更深入的理解了redux思想和函数式编程的理念，建议大家可以去看一下嘻嘻，看完之后肯定会有收获的。 我是对照着网上别人看过的源码笔记看的，写这篇文章的原因呢，是想总结一下，因为我记性比较差啦，算是做一个笔记，方便以后复习。 redux的源码中，有6个js文件，分别是：  index.js create">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-01T16:16:52.000Z">
+<meta property="og:updated_time" content="2018-07-02T01:27:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redux源码分析">
 <meta name="twitter:description" content="第一次看源码，并没有想象中的难哈，主要是redux的源码比较少，理解起来也比较简单。看过之后，感觉更深入的理解了redux思想和函数式编程的理念，建议大家可以去看一下嘻嘻，看完之后肯定会有收获的。 我是对照着网上别人看过的源码笔记看的，写这篇文章的原因呢，是想总结一下，因为我记性比较差啦，算是做一个笔记，方便以后复习。 redux的源码中，有6个js文件，分别是：  index.js create">
@@ -24,7 +24,7 @@
     <link rel="alternative" href="/atom.xml" title="天生苑" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/avatar.jpg">
+    <link rel="icon" href="/img/favicon.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -54,7 +54,7 @@
 		  <h1 class="header-author"><a href="/">DL</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">对一切充满感激，喜欢美好，也喜欢自己😊</p>
+		<p class="header-subtitle">I&#39;m a student.😊</p>
 		
 
 		<nav class="header-menu">
@@ -72,6 +72,8 @@
             
     			
             
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
 		</nav>
@@ -102,7 +104,7 @@
 			  <h1 class="header-author js-header-author">DL</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>对一切充满感激，喜欢美好，也喜欢自己😊<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>I&#39;m a student.😊<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -169,6 +171,7 @@
 <li>applyMiddleware.js</li>
 </ul>
 <p>我们一个一个来分析吧~</p>
+<a id="more"></a>
 <h2 id="index"><a href="#index" class="headerlink" title="index"></a>index</h2><p>这里呢没有太多需要讲的，就是暴露了5个核心的api，分别是：</p>
 <ul>
 <li>createStore：接收state和reducer，生成一颗状态树store</li>
@@ -301,11 +304,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/06/25/react_redux_react-redux/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/06/22/http_note/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          对React、Redux、React-Redux详细剖析
+          HTTP协议知识点总结
         
       </div>
     </a>
@@ -406,6 +409,8 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
     
       
+      
+      
     
     
 
@@ -413,11 +418,13 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
         
+      
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -438,11 +445,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">rea</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">re</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -450,11 +453,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">redux，</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">源码</a>
+                <a href="javascript:void(0)" class="js-tag color2">react-redux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -462,15 +461,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">r</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">react-redux</a>
+                <a href="javascript:void(0)" class="js-tag color3">总结</a>
               </li>
             
             <div class="clearfix"></div>
@@ -518,6 +513,12 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
     
 
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">就读于中南大学&lt;br&gt;&lt;br&gt;二年级学生&lt;br&gt;&lt;br&gt;是一个假的程序媛</div>
+  	  	
+    	</section>
     
   </div>
   

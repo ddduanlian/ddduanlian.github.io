@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>对React、Redux、React-Redux详细剖析 | 天生苑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言相信很多新手朋友们对于React、Redux、React-Redux这三者之间的关系和区别肯定有很多不解和疑惑。这里我们就来详细的剖析一下它们吧。 React：负责组件的UI界面渲染；Redux：数据处理中心；React-Redux：连接组件和数据中心，也就是把React和Redux联系起来。 ReactReact主要就是用来实现UI界面的，是一个专注于view层的框架。对于一些小项目，如果数">
-<meta name="keywords" content="redux,react,react-redux">
+  <meta name="description" content="前言相信很多新手朋友们对于React、Redux、React-Redux这三者之间的关系和区别肯定有很多不解和疑惑。这里我们就来详细的剖析一下它们吧。 React：负责组件的UI界面渲染；Redux：数据处理中心；React-Redux：连接组件和数据中心，也就是把React和Redux联系起来。">
+<meta name="keywords" content="react,redux,react-redux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对React、Redux、React-Redux详细剖析">
 <meta property="og:url" content="http://yoursite.com/2018/06/25/react_redux_react-redux/index.html">
 <meta property="og:site_name" content="天生苑">
-<meta property="og:description" content="前言相信很多新手朋友们对于React、Redux、React-Redux这三者之间的关系和区别肯定有很多不解和疑惑。这里我们就来详细的剖析一下它们吧。 React：负责组件的UI界面渲染；Redux：数据处理中心；React-Redux：连接组件和数据中心，也就是把React和Redux联系起来。 ReactReact主要就是用来实现UI界面的，是一个专注于view层的框架。对于一些小项目，如果数">
+<meta property="og:description" content="前言相信很多新手朋友们对于React、Redux、React-Redux这三者之间的关系和区别肯定有很多不解和疑惑。这里我们就来详细的剖析一下它们吧。 React：负责组件的UI界面渲染；Redux：数据处理中心；React-Redux：连接组件和数据中心，也就是把React和Redux联系起来。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/6/23/1642cc069b5aceec?w=1438&h=832&f=png&s=198431">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/6/23/1642cca46deb8072?w=1208&h=1158&f=png&s=423380">
@@ -23,16 +23,16 @@
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/6/24/1642fe4239346286?w=1188&h=376&f=png&s=77652">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/6/24/164325cc2f6288e1?w=1034&h=580&f=png&s=70989">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/6/24/1643259f68138eed?w=2000&h=964&f=png&s=178437">
-<meta property="og:updated_time" content="2018-07-01T16:16:49.000Z">
+<meta property="og:updated_time" content="2018-07-02T01:30:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对React、Redux、React-Redux详细剖析">
-<meta name="twitter:description" content="前言相信很多新手朋友们对于React、Redux、React-Redux这三者之间的关系和区别肯定有很多不解和疑惑。这里我们就来详细的剖析一下它们吧。 React：负责组件的UI界面渲染；Redux：数据处理中心；React-Redux：连接组件和数据中心，也就是把React和Redux联系起来。 ReactReact主要就是用来实现UI界面的，是一个专注于view层的框架。对于一些小项目，如果数">
+<meta name="twitter:description" content="前言相信很多新手朋友们对于React、Redux、React-Redux这三者之间的关系和区别肯定有很多不解和疑惑。这里我们就来详细的剖析一下它们吧。 React：负责组件的UI界面渲染；Redux：数据处理中心；React-Redux：连接组件和数据中心，也就是把React和Redux联系起来。">
 <meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/6/23/1642cc069b5aceec?w=1438&h=832&f=png&s=198431">
   
     <link rel="alternative" href="/atom.xml" title="天生苑" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/avatar.jpg">
+    <link rel="icon" href="/img/favicon.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -62,7 +62,7 @@
 		  <h1 class="header-author"><a href="/">DL</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">对一切充满感激，喜欢美好，也喜欢自己😊</p>
+		<p class="header-subtitle">I&#39;m a student.😊</p>
 		
 
 		<nav class="header-menu">
@@ -80,6 +80,8 @@
             
     			
             
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
 		</nav>
@@ -110,7 +112,7 @@
 			  <h1 class="header-author js-header-author">DL</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>对一切充满感激，喜欢美好，也喜欢自己😊<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>I&#39;m a student.😊<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -167,6 +169,7 @@
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>相信很多新手朋友们对于React、Redux、React-Redux这三者之间的关系和区别肯定有很多不解和疑惑。这里我们就来详细的剖析一下它们吧。<br></p>
 <p><code>React</code>：负责组件的UI界面渲染；<br><br><code>Redux</code>：数据处理中心；<br><br><code>React-Redux</code>：连接组件和数据中心，也就是把React和Redux联系起来。<br></p>
+<a id="more"></a>
 <h1 id="React"><a href="#React" class="headerlink" title="React"></a>React</h1><p>React主要就是用来实现UI界面的，是一个专注于view层的框架。对于一些小项目，如果数据的交互不是很多，完全可以只使用React就能很好的实现。<br></p>
 <p>在传统的页面开发模式中，需要多次的操作DOM来进行页面的更新，我们都知道对DOM的操作会造成极大的性能问题。而React的提出就是减少对DOM的操作来提升性能，也就是Virtual DOM。</p>
 <h4 id="Virtual-DOM"><a href="#Virtual-DOM" class="headerlink" title="Virtual DOM"></a>Virtual DOM</h4><p>Virtual DOM就相当于一个虚拟空间，React就是基于 Virtual DOM 来工作的。<br></p>
@@ -285,11 +288,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -364,8 +367,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2018/06/01/redux_source/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">redux源码分析</div>
+    <a href="/2018/06/22/http_note/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTTP协议知识点总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -464,6 +467,8 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
     
       
+      
+      
     
     
 
@@ -471,11 +476,13 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
         
+      
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -496,11 +503,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">rea</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">re</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,11 +511,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">redux，</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">源码</a>
+                <a href="javascript:void(0)" class="js-tag color2">react-redux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,15 +519,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">r</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">react-redux</a>
+                <a href="javascript:void(0)" class="js-tag color3">总结</a>
               </li>
             
             <div class="clearfix"></div>
@@ -576,6 +571,12 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
     
 
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">就读于中南大学&lt;br&gt;&lt;br&gt;二年级学生&lt;br&gt;&lt;br&gt;是一个假的程序媛</div>
+  	  	
+    	</section>
     
   </div>
   
