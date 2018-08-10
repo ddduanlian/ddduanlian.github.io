@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 思维导图 | 天生苑</title>
+  <title>两招搞定三栏布局——圣杯布局、双飞翼布局 | 天生苑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="天生苑">
-<meta property="og:url" content="http://yoursite.com/tags/思维导图/index.html">
+  <meta name="description" content="如何实现如下的这种中间自适应宽度，左右两栏固定宽度布局？这是我们经常碰到的布局，我们可以使用：圣杯布局、双飞翼布局。我之前一直为这俩布局弄得焦头烂额，终于，我懂啦！当然，最简单还是flex布局了，这里主要是去理解它们的实现。">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="两招搞定三栏布局——圣杯布局、双飞翼布局">
+<meta property="og:url" content="http://yoursite.com/2018/08/10/threeLine_layout/index.html">
 <meta property="og:site_name" content="天生苑">
+<meta property="og:description" content="如何实现如下的这种中间自适应宽度，左右两栏固定宽度布局？这是我们经常碰到的布局，我们可以使用：圣杯布局、双飞翼布局。我之前一直为这俩布局弄得焦头烂额，终于，我懂啦！当然，最简单还是flex布局了，这里主要是去理解它们的实现。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/8/9/1651e7a20846b678?w=1215&h=313&f=png&s=7589">
+<meta property="og:updated_time" content="2018-08-10T13:17:00.346Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="天生苑">
+<meta name="twitter:title" content="两招搞定三栏布局——圣杯布局、双飞翼布局">
+<meta name="twitter:description" content="如何实现如下的这种中间自适应宽度，左右两栏固定宽度布局？这是我们经常碰到的布局，我们可以使用：圣杯布局、双飞翼布局。我之前一直为这俩布局弄得焦头烂额，终于，我懂啦！当然，最简单还是flex布局了，这里主要是去理解它们的实现。">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/8/9/1651e7a20846b678?w=1215&h=313&f=png&s=7589">
   
     <link rel="alternative" href="/atom.xml" title="天生苑" type="application/atom+xml">
   
@@ -134,64 +141,180 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-threeLine_layout" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/07/you_dont_know_js/" class="archive-article-date">
-  	<time datetime="2018-08-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/07/you_dont_know_js/">用思维导图的方式精读《你不知道的JavaScript》系列</a>
+    <h1 class="article-title" itemprop="name">
+      两招搞定三栏布局——圣杯布局、双飞翼布局
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/08/10/threeLine_layout/" class="archive-article-date">
+  	<time datetime="2018-08-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如何实现如下的这种中间自适应宽度，左右两栏固定宽度布局？<br><img src="https://user-gold-cdn.xitu.io/2018/8/9/1651e7a20846b678?w=1215&amp;h=313&amp;f=png&amp;s=7589" alt="三栏布局"><br>这是我们经常碰到的布局，我们可以使用：圣杯布局、双飞翼布局。我之前一直为这俩布局弄得焦头烂额，终于，我懂啦！当然，最简单还是flex布局了，这里主要是去理解它们的实现。</p>
+<a id="more"></a>
+<h1 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h1><p>首先，我们先定义HTML结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&apos;container&apos;&gt;</span><br><span class="line">    &lt;div class=&quot;middle&quot;&gt;中间的&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;left&quot;&gt;左边的&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;right&quot;&gt;右边的&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>再来开始我们的布局，首先给这三个div都给一个float: left，让它们均左浮动。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.middle, .left, .right&#123;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来是最重要的两个步骤，设置左盒子的margin-left: -100%，把左盒子拉上来，调整左盒子的浮动位置到中间盒子的左侧。<br></p>
+<p>再设置右盒子的margin-left: -右盒子宽度px，把右盒子拉上来，调整右盒子的浮动位置到中间盒子的右侧。<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.left&#123;</span><br><span class="line">    background: pink;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    margin-left: -100%;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">.right&#123;</span><br><span class="line">    background: pink;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    margin-left: -300px;  //300px为右盒子的宽度</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>【*】此时的布局基本出来了，但是中间盒子的左右两侧会被左右两个盒子覆盖掉，此时我们要通过相对定位来避免覆盖。给左右盒子position: relative，再分别设置它们的left和right,并且控制父元素的padding来为左右两边留白。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.left&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    left: -300px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.right&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    right: -300px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.container&#123;</span><br><span class="line">    border: 1px solid black;</span><br><span class="line">    height: 300px;</span><br><span class="line">    padding: 0 400px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ok！大功告成，圣杯布局已经完成啦~</p>
+<h1 id="双飞翼布局"><a href="#双飞翼布局" class="headerlink" title="双飞翼布局"></a>双飞翼布局</h1><p>双飞翼的布局基本和圣杯布局类似，它的HTML结构为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&apos;container&apos;&gt;</span><br><span class="line">    &lt;div class=&quot;middle&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;inner_middle&quot;&gt;中间的&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;left&quot;&gt;左边的&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;right&quot;&gt;右边的&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>前面的布局和圣杯完全一致，只是从【*】开始的这一步略微有些差异。<br></p>
+<p>在双飞翼中避免左右盒子被覆盖，是通过设置inner_middle的左右margin来实现的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.inner_middle&#123;</span><br><span class="line">    margin: 0 300px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外，整个布局的左右padding留白也有些差异，直接设置父盒子的padding为左右留白的宽度就可以了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.container&#123;</span><br><span class="line">    border: 1px solid black;</span><br><span class="line">    height: 300px;</span><br><span class="line">    padding: 0 100px;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>这里还有第二种实现方式，HTML结构沿用圣杯布局的结构，通过设置左右padding来避免中间盒子内容的覆盖。同时为了避免布局混乱，还有设置box-sizing: border-box，表示width包括border和padding，这样可以保证即使设置右左右padding，它的总宽度也是不变的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.middle&#123;</span><br><span class="line">    background: #ccc;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 300px;</span><br><span class="line">    padding: 0 300px;</span><br><span class="line">    box-sizing: border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">思维导图</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/10/threeLine_layout/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/08/07/you_dont_know_js/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">用思维导图的方式精读《你不知道的JavaScript》系列</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#圣杯布局"><span class="toc-number">1.</span> <span class="toc-text">圣杯布局</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#双飞翼布局"><span class="toc-number">2.</span> <span class="toc-text">双飞翼布局</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -218,9 +341,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
