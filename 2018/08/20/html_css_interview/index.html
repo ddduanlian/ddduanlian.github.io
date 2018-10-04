@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=6.4.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=6.4.2">
+
+
+  <link rel="mask-icon" href="/images/favicon.jpg?v=6.4.2" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.4.2',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言2019届校招陆陆续续开始了，整理了一些高频的面试题。 HTML部分1. 什么是&amp;lt;!DOCTYPE&amp;gt;？ DOCTYPE是html5标准网页声明，且必须声明在HTML文档的第一行。来告知浏览器的解析器用什么文档标准解析这个文档。">
+<meta name="keywords" content="CSS,HTML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML、CSS面试题整理">
+<meta property="og:url" content="http://yoursite.com/2018/08/20/html_css_interview/index.html">
+<meta property="og:site_name" content="天生苑">
+<meta property="og:description" content="前言2019届校招陆陆续续开始了，整理了一些高频的面试题。 HTML部分1. 什么是&amp;lt;!DOCTYPE&amp;gt;？ DOCTYPE是html5标准网页声明，且必须声明在HTML文档的第一行。来告知浏览器的解析器用什么文档标准解析这个文档。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-04T04:15:18.029Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML、CSS面试题整理">
+<meta name="twitter:description" content="前言2019届校招陆陆续续开始了，整理了一些高频的面试题。 HTML部分1. 什么是&amp;lt;!DOCTYPE&amp;gt;？ DOCTYPE是html5标准网页声明，且必须声明在HTML文档的第一行。来告知浏览器的解析器用什么文档标准解析这个文档。">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/20/html_css_interview/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>HTML、CSS面试题整理 | 天生苑</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">天生苑</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">个人博客</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/20/html_css_interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DL">
+      <meta itemprop="description" content="I'm a student.😊">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天生苑">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTML、CSS面试题整理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-20 00:00:00" itemprop="dateCreated datePublished" datetime="2018-08-20T00:00:00+08:00">2018-08-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-04 12:15:18" itemprop="dateModified" datetime="2018-10-04T12:15:18+08:00">2018-10-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试/" itemprop="url" rel="index"><span itemprop="name">面试</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/20/html_css_interview/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/08/20/html_css_interview/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>2019届校招陆陆续续开始了，整理了一些高频的面试题。</p>
+<h2 id="HTML部分"><a href="#HTML部分" class="headerlink" title="HTML部分"></a>HTML部分</h2><p><strong>1. 什么是&lt;!DOCTYPE&gt;？</strong></p>
+<p>DOCTYPE是html5标准网页声明，且必须声明在HTML文档的第一行。来告知浏览器的解析器用什么文档标准解析这个文档。<br></p>
+<a id="more"></a>
+<p>文档解析类型有：</p>
+<ul>
+<li><code>BackCompat</code>：怪异模式，浏览器使用自己的怪异模式解析渲染页面。（如果没有声明DOCTYPE，默认就是这个模式）</li>
+<li><code>CSS1Compat</code>：标准模式，浏览器使用W3C的标准解析渲染页面。</li>
+</ul>
+<p><strong>2. meta标签</strong></p>
+<p>提供给页面的一些元信息（名称/值对），有助于SEO。<br></p>
+<p>属性值：</p>
+<ul>
+<li><p><code>name</code>：名称/值对中的名称。author、description、keywords、generator、revised、others。 把 content 属性关联到一个名称。</p>
+</li>
+<li><p><code>http-equiv</code>：没有name时，会采用这个属性的值。content-type、expires、refresh、set-cookie。把content属性关联到http头部</p>
+</li>
+<li><p><code>content</code> ： 名称/值对中的值， 可以是任何有效的字符串。 始终要和 name 属性或 http-equiv 属性一起使用</p>
+</li>
+<li><p><code>scheme</code> ： 用于指定要用来翻译属性值的方案</p>
+</li>
+</ul>
+<p><strong>3. HTML语义化</strong></p>
+<ul>
+<li>用正确的标签做正确的事情。</li>
+<li>html语义化让页面的内容结构化，结构更清晰，便于对浏览器，搜索引擎解析；</li>
+<li>即使在没有样式CSS情况下也以一种文档格式显示，并且是容易阅读的；</li>
+<li>搜索引擎的爬虫也依赖于HTML标记确定上下文和各个关键字的权重，利于SEO;</li>
+<li>使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。</li>
+</ul>
+<p><strong>4. 常见的浏览器内核</strong></p>
+<ul>
+<li>Trident内核：IE,MaxThon,TT,The Word,360,搜狗浏览器等。</li>
+<li>Gecko内核：Netscape6及以上版本，FF,MozillaSuite/SeaMonkey等；</li>
+<li>Presto内核：Opera7及以上。[现为：Blink]</li>
+<li>Webkit内核：Safari,Chrome等。[Chrome的:Blink(Webkit的分支)]</li>
+</ul>
+<p><strong>5. 简单介绍对浏览器内核的理解</strong></p>
+<p>主要分成两部分：渲染引擎和JS引擎。</p>
+<ul>
+<li>渲染引擎：将代码转换成页面。负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入CSS等）、以及计算网页的显示方式，然后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏览器、电子邮件客户端以及其他需要编辑、显示网络内容的应用程序都需要内核。</li>
+<li>JS引擎：解析和执行javascript来实现网页的动态效果。</li>
+</ul>
+<p>最开始渲染引擎和JS引擎并没有区分得很明确，后来JS引擎越来越独立，内核就倾向于只指渲染引擎。</p>
+<p><strong>6. HTML5有哪些新特性，移除了哪些元素？如何处理HTML5新标签的浏览器兼容问题？</strong></p>
+<ul>
+<li>新特性：<br></li>
+</ul>
+<p>(1)    用于绘画的canvas元素；<br><br>(2)    用于媒介回放的video和audio元素；<br><br>(3)    对本地离线存储有更好的支持，localStorage长期存储数据，浏览器关闭后数据不丢失；sessionStorage的数据在浏览器关闭后自动删除；<br><br>(4)    语意化更好的内容元素，比如header,nav,section,article,footer；<br><br>(5)    新的表单控件：calendar,date,time,email,url,search；<br><br>(6)    新的技术webworker,websockt、Geolocation；<br></p>
+<ul>
+<li>移除元素：<br></li>
+</ul>
+<p>(1) 纯表现的元素：basefont,big,center,font,s,strike,tt,u;<br><br>(2) 对可用性产生负面影响的元素：frame,frameset,noframes;<br></p>
+<ul>
+<li>处理兼容性问题：<br></li>
+</ul>
+<p>IE8/IE7/IE6支持document.createElement方法产生的标签，可以利用这一特性让这些浏览器支持HTML5新标签，浏览器支持新标签后，还需要添加标签默认的样式。</p>
+<p><strong>7. html5哪些标签可以做SEO优化？</strong></p>
+<p>title、meta、header、footer、nav、article、aside</p>
+<p><strong>8. src和href的区别</strong></p>
+<ul>
+<li><p>src是指向外部资源的位置，指向的内容会嵌入到文档中当前标签所在的位置，在请求src资源时会将其指向的资源下载并应用到文档内，如js脚本，img图片和frame等元素。当浏览器解析到该元素时，会暂停其他资源的下载和处理，知道将该资源加载、编译、执行完毕，所以一般js脚本会放在底部而不是头部。</p>
+</li>
+<li><p>href是指网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，用于超链接。</p>
+</li>
+</ul>
+<p><strong>9. 渐进增强和优雅降级</strong></p>
+<ul>
+<li><code>渐进增强</code>：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能，达到更好的用户体验。</li>
+<li><code>优雅降级</code>：一开始就构建完整的功能，然后再针对低版本的浏览器进行兼容。</li>
+</ul>
+<p><strong>10. defer和async的区别</strong></p>
+<ul>
+<li><code>defer</code>要等到整个页面在内存中正常渲染结束（DOM结构完全生成，以及其他脚本执行完成），才会执行。多个defer脚本会按照它们在页面出现的顺序加载。==“渲染完再执行”==</li>
+<li><code>async</code>一旦下载完，渲染引擎就会中断渲染，执行这个脚本以后，再继续渲染。多个async脚本是不能保证加载顺序的。==“下载完就执行”==</li>
+</ul>
+<p><strong>11. 如何实现浏览器内多个标签页之间的通信？</strong></p>
+<p><strong>方法一：调用localstorge</strong><br></p>
+<p>标签页1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;input id=&quot;name&quot;&gt;  </span><br><span class="line">&lt;input type=&quot;button&quot; id=&quot;btn&quot; value=&quot;提交&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;  </span><br><span class="line">    $(function()&#123;    </span><br><span class="line">        $(&quot;#btn&quot;).click(function()&#123;    </span><br><span class="line">           var name=$(&quot;#name&quot;).val();    </span><br><span class="line">            localStorage.setItem(&quot;name&quot;, name); //存储需要的信息 </span><br><span class="line">        &#125;);     </span><br><span class="line">   &#125;);    </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>标签页2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;   </span><br><span class="line">    window.addEventListener(&quot;storage&quot;, function(event)&#123;    </span><br><span class="line">	   console.log(event.key + &quot;=&quot; + event.newValue);    </span><br><span class="line">    &#125;);     //使用storage事件监听添加、修改、删除的动作  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>方法二：使用cookie+setInterval</strong><br></p>
+<p>将要传递的信息存储在cookie中，每隔一定时间读取cookie信息，即可随时获取要传递的信息。<br></p>
+<p>标签页1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;    </span><br><span class="line">    $(&quot;#btn&quot;).click(function()&#123;    </span><br><span class="line">        var name=$(&quot;#name&quot;).val();    </span><br><span class="line">        document.cookie=&quot;name=&quot;+name;    </span><br><span class="line">    &#125;);    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>标签页2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> $(function()&#123;   </span><br><span class="line">	function getCookie(key) &#123;    </span><br><span class="line">	   return JSON.parse(&quot;&#123;\&quot;&quot; + document.cookie.replace(/;\s+/gim,&quot;\&quot;,\&quot;&quot;).replace(/=/gim, &quot;\&quot;:\&quot;&quot;) + &quot;\&quot;&#125;&quot;)[key];    </span><br><span class="line">	&#125;     </span><br><span class="line">	setInterval(function()&#123;    </span><br><span class="line">	   console.log(&quot;name=&quot; + getCookie(&quot;name&quot;));    </span><br><span class="line">	&#125;, 10000);    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="CSS部分"><a href="#CSS部分" class="headerlink" title="CSS部分"></a>CSS部分</h2><p><strong>1. css盒模型</strong></p>
+<ul>
+<li>IE盒模型 box-sizing:border-box;（怪异模式）；</li>
+<li>W3C标准盒模型 box-sizing:content-box;（标准模式）。</li>
+</ul>
+<p>应用场景：</p>
+<p>（1）表单：<br>表单中有一些input元素其实还是展现的是传统IE盒模型，带有一些默认的样式，而且在不同平台或者浏览器下的表现不一，造成了表单展现的差异。此时我们可以通过box-sizing属性来构建一个风格统一的表单元素。<br></p>
+<p>（2）设置子类元素的margin或者border时，可能会撑破父层元素的尺寸，这时我就需要使用box-sizing: border-box来将border包含进元素的尺寸中，这样就不会存在撑破父层元素的情况了。</p>
+<p><strong>2. 行内元素和块级元素的区别？行内块级元素的兼容性使用？（IE8以下）</strong></p>
+<ul>
+<li><code>块级元素</code>：div,p,h1,form,ul,li</li>
+</ul>
+<p>（1）各占一行，垂直方向排列；<br><br>（2）可以包含其他块级或者行内元素；<br><br>（3）高度、行高以及外边距和内边距都可控制；<br><br>（4）默认宽度是它本身父容器的100%（和父元素的宽度一致），与内容无关。<br></p>
+<ul>
+<li><code>行内元素</code>：span,a,label,input,img,strong,em</li>
+</ul>
+<p>（1）水平方向排列，不会自动换行；<br><br>（2）不可以包含块级元素，但是可以包含其他行内元素或者文本；<br><br>（3）行内元素设置width、height无效(可以设置line-height)，margin和padding上下无效；<br><br>（4）宽度就是它的文字和图片的宽度，不可改变。<br></p>
+<ul>
+<li>行内块级元素在IE8以下的兼容性（块元素模拟inline-block）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    display： inline-block；</span><br><span class="line">    zoom： 1；   //在IE下触发hasLayout</span><br><span class="line">    display：inline；//一旦触发了hasLayout设置display：inline和display：block效果相似。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p><strong>haslayout</strong> 是IE7-浏览器的特有属性。hasLayout是一种只读属性，有两种状态：true或false。当其为true时，代表该元素有自己的布局，否则代表该元素的布局继承于父元素。<br><br><strong>注意:</strong> 通过element.currentStyle.hasLayout可以得出当前元素的hasLayout情况。</p>
+</blockquote>
+<p><strong>3. 页面导入样式时，使用link和@import有什么区别？</strong></p>
+<p>（1）link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务；@import属于CSS范畴，只能加载CSS。<br><br>（2）link引用CSS时，在页面载入时同时加载；@import需要页面网页完全载入以后加载。<br><br>（3）link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器（IE5以下）不支持。<br><br>（4）link支持使用Javascript控制DOM去改变样式；而@import不支持。<br></p>
+<p><strong>4. 清除浮动有哪些方式？</strong></p>
+<p>（1）在浮动元素下方添加一个非浮动元素<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;div style=&quot;float:left;width:45%;&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;float:right;width:45%;&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>父容器现在必须考虑非浮动子元素的位置，而后者肯定出现在浮动元素下方，所以显示出来，父容器就把所有子元素都包括进去了。这种方法比较简单，但是要在页面中增加冗余标签，违背了语义网的原则。<br></p>
+<p>（2）将父容器也改成浮动定位<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;float:left;&quot;&gt;</span><br><span class="line">    &lt;div style=&quot;float:left;width:45%;&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;float:right;width:45%;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这种方法不用修改HTML代码，但是缺点在于父容器变成浮动以后，会影响到后面元素的定位，而且有时候，父容器是定位死的，无法变成浮动。<br></p>
+<p>（3）父容器设置overflow: hidden或者auto。（开启BFC）<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;overflow: hidden;&quot;&gt;</span><br><span class="line">    &lt;div style=&quot;float:left;width:45%;&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;float:right;width:45%;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p><code>缺点</code>：一个是IE6不支持，另一个是一旦子元素的大小超过父容器的大小，就会出显示问题。<br></p>
+<p>（4）利用:after伪选择符，在父容器的尾部自动创建一个子元素 ==（推荐这种）== <br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:after &#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    display: block;</span><br><span class="line">    clear: both;</span><br><span class="line">&#125;</span><br><span class="line">//兼容ie6：激活父元素的&quot;hasLayout&quot;属性，让父元素拥有自己的布局</span><br><span class="line">.clearfix &#123;</span><br><span class="line">    zoom: 1;  //或者height：1%；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>5. 简单介绍BFC和IFC</strong></p>
+<p><strong>BFC —— 块级格式化上下文</strong><br></p>
+<p>（1）BFC触发条件：</p>
+<ul>
+<li>根元素或其他包含他的元素</li>
+<li>浮动元素  float：left/right</li>
+<li>position：absolute/fixed</li>
+<li>display：inline-block,table-cell,table-caption</li>
+<li>overflow不为visible</li>
+<li>弹性盒子：display: flex 或 inline-flex</li>
+</ul>
+<p>（2）BFC特性</p>
+<ul>
+<li>内部的Box会在垂直方向上一个接一个的放置；</li>
+<li>垂直方向的距离有margin决定(属于同一个BFC的两个相邻Box的margin会发生重叠，与方向无关)；</li>
+<li>每个元素的margin box的左边， 与包含块border； box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此；</li>
+<li>BFC的区域不会与float的元素区域重叠；</li>
+<li>计算BFC的高度时，浮动子元素也参与计算，可以解决父元素高度塌陷问题；</li>
+<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面元素，反之亦然；</li>
+<li>文档流中的BFC元素, width为auto时，会占满当前行的剩余宽度。</li>
+</ul>
+<p>（3）应用</p>
+<ul>
+<li>阻止两个相邻的普通流中的块元素垂直方向上的margin折叠；</li>
+<li>BFC可以包含浮动元素，撑开父元素；</li>
+<li>BFC可以阻止元素被浮动元素覆盖。</li>
+</ul>
+<p>（4）BFC与hasLayout<br></p>
+<p>IE6-7不支持BFC，而是使用私有属性hasLayout，要用zoom：1触发hasLayout属性。Zoom用于设置或检索元素的缩放比例，值为“1”即使用元素的实际尺寸。<br></p>
+<p><strong>IFC —— 行内格式化上下文</strong><br></p>
+<p>（1）创建方式：<br></p>
+<p>和BFC相比，它的创建方式是被动的、隐式的，是由所包含的子元素来创建：只有在一个区域内仅包含可水平排列的元素时才会生成，这些子元素可以是文本、inline-level元素或inline-block-level元素。<br></p>
+<p>（2）特性：<br></p>
+<ul>
+<li>IFC内部的元素，按从左到右、从上到下的顺序排布；</li>
+<li>IFC内部的每个元素，都可以通过设置vertical-align属性，来调整在垂直方向上的对齐；</li>
+<li>包含这些内部元素的矩形区域，形成的每一行，被称为line box（行框）。</li>
+</ul>
+<p><strong>6. 选择器优先级</strong></p>
+<p>！important&gt;行内样式&gt;id选择器&gt;类选择器&gt;标签选择器&gt;通配符&gt;继承<br></p>
+<p><code>权重算法</code>：(0,0,0,0)  ——&gt; 第一个0对应的是important的个数，第二个0对应的是id选择器的个数，第三个0对应的类选择器的个数，第四个0对应的是标签选择器的个数，合起来就是当前选择器的权重。<br></p>
+<p><code>比较</code>：先从第一个0开始比较，如果第一个0大，那么说明这个选择器的权重高，如果第一个相同，比较第二个，依次类推。<br></p>
+<p><strong>7. 怎么实现水平垂直居中</strong></p>
+<p>（1）行内元素的水平居中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text-align: center;</span><br><span class="line">line-height: 100px;</span><br></pre></td></tr></table></figure></p>
+<p>（2）块级元素水平居中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">margin: 0 auto;</span><br></pre></td></tr></table></figure></p>
+<p>（3）已知高度宽度元素的水平垂直居中<br></p>
+<ul>
+<li><p>利用绝对定位和负边距实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.container&#123;</span><br><span class="line">    width: 600px;</span><br><span class="line">    height: 600px;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.center&#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 50%;</span><br><span class="line">    top: 50%;</span><br><span class="line">    margin: -150px 0 0 -150px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用绝对定位和margin</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.container&#123;</span><br><span class="line">    width: 600px;</span><br><span class="line">    height: 600px;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.center&#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    right: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    margin: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（4）未知高度和宽度元素的水平垂直居中</p>
+<ul>
+<li><p>被居中的元素是inline或者inline-block元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.container&#123;</span><br><span class="line">    width: 600px;</span><br><span class="line">    height: 600px;</span><br><span class="line">    display: table-cell;</span><br><span class="line">    text-align: center;</span><br><span class="line">    vertical-align: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>css3的transform属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.container&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 600px;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.center&#123;</span><br><span class="line">    position:absolute;</span><br><span class="line">    top: 50%;</span><br><span class="line">    left: 50%;</span><br><span class="line">    transform: translate(-50%, -50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>flex布局</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.container&#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 600px;</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: center;</span><br><span class="line">    align-items: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最简单的写法：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.container&#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    height: 600px;</span><br><span class="line">&#125;</span><br><span class="line">.center&#123;</span><br><span class="line">    margin : auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>8. 实现左边定宽，右边自适应布局</strong></p>
+<p>（1）左盒子左浮动，右盒子width=100%<br><br>（2）左盒子左浮动，右盒子margin-left=左盒子宽度<br><br>（3）左盒子左浮动，右盒子右浮动，设置width: calc（100% - 左盒子宽度）<br><br>（4）父容器设置display：flex，右盒子flex：1<br></p>
+<p><strong>9. 实现中间自适应宽度，左右两栏固定宽度布局</strong></p>
+<p><a href="https://segmentfault.com/a/1190000015950592" target="_blank" rel="noopener">两招搞定三栏布局——圣杯布局、双飞翼布局</a></p>
+<p><strong>10. 脱离文档流</strong></p>
+<p>(1)    浮动脱离文档流：使用float脱离文档流时，其他盒子会无视这个元素，但其他盒子内的文本依然会为这个元素让出位置，环绕在周围。 <br><br>(2)    绝对定位脱离文档流：使用absolute: position | fixed 脱离文档流的元素，其他盒子与其他盒子内的文本都会无视它。<br></p>
+<p><strong>11. CSS3新特性</strong></p>
+<ul>
+<li>颜色：新增RGBA、HSLA模式</li>
+<li>文字阴影(text-shadow)</li>
+<li>边框：圆角（border-radius）边框阴影：box-shadow</li>
+<li>盒子模型：box-sizing</li>
+<li>背景：background-size设置背景图片的尺寸，background-origin设置背景图片的原点，background-clip设置背景图片的裁剪区域，以“，”分隔可以设置多背景，用于自适应布局</li>
+<li>渐变：linear-gradient、radial-gradient</li>
+<li>过渡：transition可实现动画</li>
+<li>自定义动画</li>
+<li>在CSS3中唯一引入的伪元素是::selection</li>
+<li>多媒体查询、多栏布局</li>
+<li>border-image</li>
+<li>2D转换：transform:translate(x,y)rotate(x,y)skew(x,y)scale(x,y)</li>
+<li>3D转换</li>
+</ul>
+<p><strong>12. display:none;与visibility:hidden的区别是什么？</strong></p>
+<p>(1)    <code>display:none;</code> HTML元素（对象）的宽高，高度等各种属性值都将“丢失”,视为不存在，而且不加载。<br></p>
+<p>(2)    <code>visibility:hidden;</code> HTML元素（对象）仅仅是在视觉上看不见（完全透明），而它所占据的空间位置仍然存在，也即是说它仍然具有高度，宽度等属性值。</p>
+<p><strong>13. 响应式布局原理</strong></p>
+<p>媒体查询，查询到当前屏幕(媒介媒体)的宽度，针对不同的屏幕宽度设置不同的样式来适应不同屏幕。</p>
+<p><strong>14. flex布局</strong></p>
+<p>flex布局可以看阮一峰老师的这两篇文章： <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">Flex 布局教程：语法篇</a> ， <a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">Flex 布局教程：实例篇</a> ，讲的非常详细。</p>
+<p>（1）设置在容器上的属性</p>
+<ul>
+<li><code>flex-direction：row | row-reverse | column | column-reverse</code>  项目的排列方向</li>
+<li><code>flex-wrap：nowrap | wrap | wrap-reverse</code>                              是否换行</li>
+<li><code>flex-flow：&lt;flex-direction&gt; || &lt;flex-wrap&gt;</code>                           flex-direction和 flex-wrap的简写</li>
+<li><code>justify-content：flex-start | flex-end | center | space-between | space-around</code>     在水平方向上的对齐方式</li>
+<li><code>align-items: flex-start | flex-end | center | baseline | stretch</code>     定义在垂直方向上的对齐方式</li>
+<li><code>align-content: flex-start | flex-end | center | space-between | space-around | stretch</code>  定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用(item有多行时)</li>
+</ul>
+<p>（2）设置在项目上的属性</p>
+<ul>
+<li><code>order：&lt;number&gt;</code>  定义项目在容器中的排列顺序，数值越小，排列越靠前，默认值为 0</li>
+<li><code>flex-basis：&lt;length&gt; | auto</code> 定义了在分配多余空间之前，项目占据的主轴空间，浏览器根据这个属性，计算主轴是否有多余空间</li>
+<li><code>flex-grow: &lt;number&gt;</code>  定义项目的放大比例。默认值为 0，即如果存在剩余空间，也不放大</li>
+<li><code>flex-shrink: &lt;number&gt;</code> 定义项目的缩小比例。默认值: 1，即如果空间不足，该项目将缩小，负值对该属性无效。</li>
+<li><code>flex：none | [ &lt;&#39;flex-grow&#39;&gt; &lt;&#39;flex-shrink&#39;&gt;? || &lt;&#39;flex-basis&#39;&gt; ]</code>flex-grow, flex-shrink 和 flex-basis的简写  默认值：0 1 auto， 即不放大，可缩小，大小就是项目本身的大小。</li>
+<li><code>align-self：auto | flex-start | flex-end | center | baseline | stretch</code>  允许单个项目有与其他项目不一样的对齐方式</li>
+</ul>
+<hr>
+<p>之后仍会继续更新…<br><br>关于HTTP方面的相关知识，可以看我总结的这篇文章： <a href="https://segmentfault.com/a/1190000015969377" target="_blank" rel="noopener">HTTP协议知识点总结</a><br><br>JavaScript相关的基础知识可以看这两篇思维导图：  <a href="https://www.processon.com/view/5b31a21de4b03eb04de53662" target="_blank" rel="noopener">你不知道的JavaScript（上卷）</a> ， <a href="https://www.processon.com/view/5b335679e4b06bb4a4208d99" target="_blank" rel="noopener">你不知道的JavaScript（中卷）第一部分</a> <br><br>中卷第二部分和下卷还在整理中。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+            <a href="/tags/HTML/" rel="tag"># HTML</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/10/threeLine_layout/" rel="next" title="两招搞定三栏布局——圣杯布局、双飞翼布局">
+                <i class="fa fa-chevron-left"></i> 两招搞定三栏布局——圣杯布局、双飞翼布局
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/03/school_interview/" rel="prev" title="校招前端面筋整理">
+                校招前端面筋整理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="DL" />
+            
+              <p class="site-author-name" itemprop="name">DL</p>
+              <p class="site-description motion-element" itemprop="description">I'm a student.😊</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ddduanlian" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:ddduanlian@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML部分"><span class="nav-number">1.1.</span> <span class="nav-text">HTML部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS部分"><span class="nav-number">1.2.</span> <span class="nav-text">CSS部分</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DL</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+      <style>
+        a.gitment-editor-footer-tip { display: none; }
+        .gitment-container.gitment-footer-container { display: none; }
+      </style>
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: 1534694400000,
+            owner: '',
+            repo: '',
+            
+            lang: "zh-CN" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'eb21bde420e14e379fcb4b1737942b9a3b3f4ff2',
+            
+                client_id: 'eeb73fed2b04efe10b7f'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
