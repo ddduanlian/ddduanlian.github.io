@@ -1,445 +1,72 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
   
-
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg?v=6.4.2">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=6.4.2">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=6.4.2">
-
-
-  <link rel="mask-icon" href="/images/favicon.jpg?v=6.4.2" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '6.4.2',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
   
-
-
-
-
-  <meta name="description" content="前言这篇文章主要是我平时在学习HTTP过程中看到的一些知识点，现在把他们总结成一篇文章，建立一个自己的知识体系，全是干货。另外，推荐一本非常棒的HTTP书——《图解HTTP》，这本书图文并茂，挺有趣的。 HTTP是基于TCP/IP协议的应用层协议，用于客户端和服务器之间的通信，默认80端口。我们按照他的发展历程的时间顺序开始说。">
-<meta name="keywords" content="HTTP,总结">
-<meta property="og:type" content="article">
-<meta property="og:title" content="HTTP协议知识点总结">
-<meta property="og:url" content="http://yoursite.com/2018/06/22/http_note/index.html">
-<meta property="og:site_name" content="天生苑">
-<meta property="og:description" content="前言这篇文章主要是我平时在学习HTTP过程中看到的一些知识点，现在把他们总结成一篇文章，建立一个自己的知识体系，全是干货。另外，推荐一本非常棒的HTTP书——《图解HTTP》，这本书图文并茂，挺有趣的。 HTTP是基于TCP/IP协议的应用层协议，用于客户端和服务器之间的通信，默认80端口。我们按照他的发展历程的时间顺序开始说。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/ddduanlian/http_note/raw/master/assets/1.jpg">
-<meta property="og:image" content="https://github.com/ddduanlian/http_note/raw/master/assets/2.jpg">
-<meta property="og:image" content="https://github.com/ddduanlian/http_note/raw/master/assets/3.jpg">
-<meta property="og:image" content="https://github.com/ddduanlian/http_note/raw/master/assets/4.jpg">
-<meta property="og:image" content="https://github.com/ddduanlian/http_note/raw/master/assets/5.jpg">
-<meta property="og:image" content="https://github.com/ddduanlian/http_note/raw/master/assets/6.jpg">
-<meta property="og:image" content="https://github.com/ddduanlian/http_note/raw/master/assets/7.jpg">
-<meta property="og:updated_time" content="2018-10-04T04:01:55.223Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP协议知识点总结">
-<meta name="twitter:description" content="前言这篇文章主要是我平时在学习HTTP过程中看到的一些知识点，现在把他们总结成一篇文章，建立一个自己的知识体系，全是干货。另外，推荐一本非常棒的HTTP书——《图解HTTP》，这本书图文并茂，挺有趣的。 HTTP是基于TCP/IP协议的应用层协议，用于客户端和服务器之间的通信，默认80端口。我们按照他的发展历程的时间顺序开始说。">
-<meta name="twitter:image" content="https://github.com/ddduanlian/http_note/raw/master/assets/1.jpg">
-
-
-
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2018/06/22/http_note/"/>
-
-
-
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>HTTP协议知识点总结 | 天生苑</title>
   
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
-
+    <meta name="description" content="I&#39;m a student.😊">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    HTTP协议知识点总结 |
+    
+    段亦心</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
 </head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-http_note" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
+  <div class="article-inner">
     
+      <header class="article-header">
+        
   
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">天生苑</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-    
-      
-        <p class="site-subtitle">个人博客</p>
-      
-    
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
-  </li>
-
-      
-      
-    </ul>
-  
-
-  
-
-  
-</nav>
-
-
-
-  
-
-
-
-</div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
-
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
+    <h1 class="article-title" itemprop="name">
+      HTTP协议知识点总结
+    </h1>
   
   
 
-  
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/22/http_note/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="DL">
-      <meta itemprop="description" content="I'm a student.😊">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天生苑">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">HTTP协议知识点总结
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-22 00:00:00" itemprop="dateCreated datePublished" datetime="2018-06-22T00:00:00+08:00">2018-06-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-04 12:01:55" itemprop="dateModified" datetime="2018-10-04T12:01:55+08:00">2018-10-04</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/22/http_note/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/06/22/http_note/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
-
-          
-
-          
-
-        </div>
       </header>
     
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
+      <div class="article-meta">
+        <a href="/2018/06/22/http_note/" class="article-date">
+  <time datetime="2018-06-21T16:00:00.000Z" itemprop="datePublished">2018-06-22</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
 
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
       
+
       
 
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章主要是我平时在学习HTTP过程中看到的一些知识点，现在把他们总结成一篇文章，建立一个自己的知识体系，全是干货。另外，推荐一本非常棒的HTTP书——《图解HTTP》，这本书图文并茂，挺有趣的。<br></p>
 <p>HTTP是基于TCP/IP协议的应用层协议，用于客户端和服务器之间的通信，默认80端口。我们按照他的发展历程的时间顺序开始说。</p>
 <a id="more"></a>
+
 <h1 id="1-HTTP-0-9"><a href="#1-HTTP-0-9" class="headerlink" title="1. HTTP/0.9"></a>1. HTTP/0.9</h1><p>1990年提出的，是最早期的版本，只有一个命令GET。</p>
 <h1 id="2-HTTP-1-0"><a href="#2-HTTP-1-0" class="headerlink" title="2. HTTP/1.0"></a>2. HTTP/1.0</h1><p>1996年5月提出的。</p>
 <ul>
@@ -520,8 +147,10 @@
 <h2 id="5-1-特性"><a href="#5-1-特性" class="headerlink" title="5.1 特性"></a>5.1 特性</h2><p>（1）推送功能：服务器可直接发送数据，不需要等待客户端的请求；<br><br>（2）基于TCP传输协议，并复用HTTP的握手通道；<br><br>（3）支持双向通信，用于实时传输消息；<br><br>（4）更好的二进制支持；<br><br>（5）更灵活，更高效。<br></p>
 <h2 id="5-2-建立连接过程"><a href="#5-2-建立连接过程" class="headerlink" title="5.2 建立连接过程"></a>5.2 建立连接过程</h2><p><strong>1、客户端：发起协议升级请求</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/<span class="number">1.1</span>      <span class="string">`采用HTTP报文格式，只支持get请求`</span></span><br><span class="line">Host: localhost:<span class="number">8080</span>    </span><br><span class="line">Origin: http:<span class="comment">//127.0.0.1:3000 </span></span><br><span class="line">Connection: Upgrade   <span class="string">`表示要升级协议`</span></span><br><span class="line">Upgrade: websocket    <span class="string">`表示升级到websocket协议`</span></span><br><span class="line">Sec-WebSocket-Version: <span class="number">13</span>    <span class="string">`表示websocket 的版本`</span></span><br><span class="line">Sec-WebSocket-Key: w4v7O6xFTi36lq3RNcgctw==   <span class="string">`是一个 Base64 encode 的值，是浏览器随机生成的`</span></span><br><span class="line">Sec-WebSocket-Protocol：chat, superchat  <span class="string">`用来指定一个特定的子协议，一旦这个字段有设置，那么服务器需要在建立连接的响应头中包含同样的字段，内容就是选择的子协议之一。`</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>2、服务端：响应协议升级</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HTTP/<span class="number">1.1</span> <span class="number">101</span> Switching Protocols    <span class="string">`101表示协议切换==`</span></span><br><span class="line">Connection:Upgrade</span><br><span class="line">Upgrade: websocket</span><br><span class="line">Sec-WebSocket-Accept: Oy4NRAQ13jhfONC7bP8dTKb4PTU= <span class="string">`经过服务器确认，并且加密过后的 Sec-WebSocket-Key`</span></span><br><span class="line">Sec-WebSocket-Protocol：chat  <span class="string">`表示最终使用的协议`</span></span><br></pre></td></tr></table></figure>
+
 <p>Sec-WebSocket-Key 的加密过程为：<br></p>
 <blockquote>
 <ol>
@@ -622,8 +251,10 @@
 <p><strong>2. 实现</strong><br></p>
 <p>（1）原生实现：</p>
  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">script.type = <span class="string">'text/javascript'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传参并指定回调执行函数为onBack</span></span><br><span class="line">script.src = <span class="string">'http://www.domain2.com:8080/login?user=admin&amp;callback=onBack'</span>;</span><br><span class="line"><span class="built_in">document</span>.head.appendChild(script);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 回调函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onBack</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">    alert(<span class="built_in">JSON</span>.stringify(res));</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//服务端返回如下（返回时即执行全局函数）：</span></span><br><span class="line">onBack(&#123;<span class="string">"status"</span>: <span class="literal">true</span>, <span class="string">"user"</span>: <span class="string">"admin"</span>&#125;)</span><br></pre></td></tr></table></figure>
+
 <p>（2）jquery ajax：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    url: <span class="string">'http://www.domain2.com:8080/login'</span>,</span><br><span class="line">    type: <span class="string">'get'</span>,</span><br><span class="line">    dataType: <span class="string">'jsonp'</span>,  <span class="comment">// 请求方式为jsonp</span></span><br><span class="line">    jsonpCallback: <span class="string">"onBack"</span>,    <span class="comment">// 自定义回调函数名</span></span><br><span class="line">    data: &#123;&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <h2 id="9-2-CORS"><a href="#9-2-CORS" class="headerlink" title="9.2 CORS"></a>9.2 CORS</h2><p><strong>1. 原理</strong><br></p>
 <p>服务器在响应头中设置相应的选项，浏览器如果支持这种方法的话就会将这种跨站资源请求视为合法，进而获取资源。<br></p>
 <p><strong>2. 实现</strong><br></p>
@@ -636,507 +267,189 @@
 </ul>
 <p>（1）<code>请求头</code>：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Origin: http:<span class="comment">//www.domain.com</span></span><br></pre></td></tr></table></figure>
-<p>（2）<code>响应头</code>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Origin: http:<span class="comment">//www.domain.com</span></span><br><span class="line">Access-Control-Allow-Credentials: <span class="literal">true</span>   <span class="string">`是否允许传送cookie`</span></span><br><span class="line">Access-Control-Expose-Headers: FooBar <span class="string">`CORS请求时，只能拿到6个基本字段：Cache-Control、Content-Language、Content-Type、Expires、Last-Modified、Pragma。如果想拿到其他字段，就必须指定。`</span></span><br></pre></td></tr></table></figure></p>
-<p>（3）另外，<code>ajax请求中</code>,如果要发送Cookie，Access-Control-Allow-Origin就不能设为星号，必须指定明确的、与请求网页一致的域名，还要设置以下内容：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.withCredentials = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure></p>
+
+<p>（2）<code>响应头</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Origin: http:<span class="comment">//www.domain.com</span></span><br><span class="line">Access-Control-Allow-Credentials: <span class="literal">true</span>   <span class="string">`是否允许传送cookie`</span></span><br><span class="line">Access-Control-Expose-Headers: FooBar <span class="string">`CORS请求时，只能拿到6个基本字段：Cache-Control、Content-Language、Content-Type、Expires、Last-Modified、Pragma。如果想拿到其他字段，就必须指定。`</span></span><br></pre></td></tr></table></figure>
+
+<p>（3）另外，<code>ajax请求中</code>,如果要发送Cookie，Access-Control-Allow-Origin就不能设为星号，必须指定明确的、与请求网页一致的域名，还要设置以下内容：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.withCredentials = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><strong>非简单请求</strong><br></li>
 </ul>
-<p>（1）<code>预检请求</code>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">OPTIONS /cors HTTP/<span class="number">1.1</span>  <span class="string">`OPTIONS请求是用来询问的`</span></span><br><span class="line">Origin: http:<span class="comment">//www.domian.com</span></span><br><span class="line">Access-Control-Request-Method: PUT</span><br><span class="line">Access-Control-Request-Headers: X-Custom-Header</span><br></pre></td></tr></table></figure></p>
-<p>（2）<code>响应头</code>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Origin: http:<span class="comment">//www.domain.com</span></span><br><span class="line">Access-Control-Allow-Methods: GET, POST, PUT  <span class="string">`服务器支持的所有跨域请求的方法`</span></span><br><span class="line">Access-Control-Allow-Headers: X-Custom-Header  <span class="string">`服务器支持的所有头信息字段，不限于浏览器在"预检"中请求的字段。`</span></span><br><span class="line">Access-Control-Allow-Credentials: <span class="literal">true</span></span><br><span class="line">Access-Control-Max-Age: <span class="number">1728000</span>  <span class="string">`指定本次预检请求的有效期，单位为秒`</span></span><br></pre></td></tr></table></figure></p>
+<p>（1）<code>预检请求</code>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">OPTIONS /cors HTTP/<span class="number">1.1</span>  <span class="string">`OPTIONS请求是用来询问的`</span></span><br><span class="line">Origin: http:<span class="comment">//www.domian.com</span></span><br><span class="line">Access-Control-Request-Method: PUT</span><br><span class="line">Access-Control-Request-Headers: X-Custom-Header</span><br></pre></td></tr></table></figure>
+
+<p>（2）<code>响应头</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Origin: http:<span class="comment">//www.domain.com</span></span><br><span class="line">Access-Control-Allow-Methods: GET, POST, PUT  <span class="string">`服务器支持的所有跨域请求的方法`</span></span><br><span class="line">Access-Control-Allow-Headers: X-Custom-Header  <span class="string">`服务器支持的所有头信息字段，不限于浏览器在"预检"中请求的字段。`</span></span><br><span class="line">Access-Control-Allow-Credentials: <span class="literal">true</span></span><br><span class="line">Access-Control-Max-Age: <span class="number">1728000</span>  <span class="string">`指定本次预检请求的有效期，单位为秒`</span></span><br></pre></td></tr></table></figure>
+
 <p>（3）<code>之后的步骤就同简单请求了</code>。<br></p>
 <p>这是CORS的整个流程图：<br><img src="https://github.com/ddduanlian/http_note/raw/master/assets/7.jpg" alt="Alt text"></p>
 <p><strong>与JSOP的比较</strong>：<br></p>
-<pre><code>JSONP只支持GET请求，CORS支持所有类型的HTTP请求。JSONP的优势在于支持老式浏览器，以及可以向不支持CORS的网站请求数据。
-</code></pre><h2 id="9-3-document-domain-iframe"><a href="#9-3-document-domain-iframe" class="headerlink" title="9.3 document.domain + iframe"></a>9.3 document.domain + iframe</h2><p>此方案仅限主域相同，子域不同的跨域应用场景。<br></p>
+<pre><code>JSONP只支持GET请求，CORS支持所有类型的HTTP请求。JSONP的优势在于支持老式浏览器，以及可以向不支持CORS的网站请求数据。</code></pre><h2 id="9-3-document-domain-iframe"><a href="#9-3-document-domain-iframe" class="headerlink" title="9.3 document.domain + iframe"></a>9.3 document.domain + iframe</h2><p>此方案仅限主域相同，子域不同的跨域应用场景。<br></p>
 <p><strong>1.原理</strong><br></p>
 <p>两个页面都通过js强制设置document.domain为基础主域，就实现了同域。</p>
 <p><strong>2.实现</strong><br><br>（1）父窗口：(<a href="http://www.domain.com/a.html" target="_blank" rel="noopener">www.domain.com/a.html</a>)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe id=&quot;iframe&quot; src=&quot;http://child.domain.com/b.html&quot;&gt;&lt;/iframe&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    document.domain = &apos;domain.com&apos;;</span><br><span class="line">    var user = &apos;admin&apos;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>（2）子窗口：(child.domain.com/b.html)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    document.domain = &apos;domain.com&apos;;</span><br><span class="line">    // 获取父窗口中变量</span><br><span class="line">    alert(&apos;get js data from parent ---&gt; &apos; + window.parent.user);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+
+<p>（2）子窗口：(child.domain.com/b.html)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    document.domain = &apos;domain.com&apos;;</span><br><span class="line">    // 获取父窗口中变量</span><br><span class="line">    alert(&apos;get js data from parent ---&gt; &apos; + window.parent.user);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
 <hr>
 <p>先写这么多，后续我会继续补充的，像cookie，session那些我以后会加进来的。</p>
 
       
     </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/22/http_note/" data-id="cjycpq29j000km02vvwaql7cq"
+         class="article-share-link">分享</a>
       
-        <div class="post-tags">
-          
-            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
-          
-            <a href="/tags/总结/" rel="tag"># 总结</a>
-          
-        </div>
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
 
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/06/01/redux_source/" rel="next" title="redux源码分析">
-                <i class="fa fa-chevron-left"></i> redux源码分析
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/25/react_redux_react-redux/" rel="prev" title="对React、Redux、React-Redux详细剖析">
-                对React、Redux、React-Redux详细剖析 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
-
-  
-    <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
-    </div>
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
-                alt="DL" />
-            
-              <p class="site-author-name" itemprop="name">DL</p>
-              <p class="site-description motion-element" itemprop="description">I'm a student.😊</p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">7</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">11</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/ddduanlian" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:ddduanlian@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  
-                </span>
-              
-            </div>
-          
-
-          
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-HTTP-0-9"><span class="nav-number">2.</span> <span class="nav-text">1. HTTP/0.9</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-HTTP-1-0"><span class="nav-number">3.</span> <span class="nav-text">2. HTTP/1.0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-HTTP-1-1"><span class="nav-number">4.</span> <span class="nav-text">3. HTTP/1.1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-特性"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-HTTP首部"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 HTTP首部</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-通用首部字段"><span class="nav-number">4.2.1.</span> <span class="nav-text">3.2.1 通用首部字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-请求首部字段"><span class="nav-number">4.2.2.</span> <span class="nav-text">3.2.2 请求首部字段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-状态码"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 状态码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-SPDY协议"><span class="nav-number">5.</span> <span class="nav-text">4. SPDY协议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-WebSocket"><span class="nav-number">6.</span> <span class="nav-text">5. WebSocket</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-特性"><span class="nav-number">6.1.</span> <span class="nav-text">5.1 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-建立连接过程"><span class="nav-number">6.2.</span> <span class="nav-text">5.2 建立连接过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-Ajax-轮询、长轮询、WebSocket原理解析"><span class="nav-number">6.3.</span> <span class="nav-text">5.3 Ajax 轮询、长轮询、WebSocket原理解析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-HTTP2"><span class="nav-number">7.</span> <span class="nav-text">6. HTTP2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-HTTPS"><span class="nav-number">8.</span> <span class="nav-text">7. HTTPS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-HTTP缓存机制"><span class="nav-number">9.</span> <span class="nav-text">8. HTTP缓存机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-缓存分类"><span class="nav-number">9.1.</span> <span class="nav-text">8.1 缓存分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-缓存判断顺序"><span class="nav-number">9.2.</span> <span class="nav-text">8.2 缓存判断顺序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-跨域"><span class="nav-number">10.</span> <span class="nav-text">9. 跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1-JSONP"><span class="nav-number">10.1.</span> <span class="nav-text">9.1 JSONP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-2-CORS"><span class="nav-number">10.2.</span> <span class="nav-text">9.2 CORS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-3-document-domain-iframe"><span class="nav-number">10.3.</span> <span class="nav-text">9.3 document.domain + iframe</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">DL</span>
-
-  
-
-  
-</div>
-
-
-
-
-
-
-
-
-
-
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv" title="总访客量">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="site-pv" title="总访问量">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
-
-
-
-
-
-
-
-
-        
-      </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-	
-    
-
-    
   </div>
 
   
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-<!-- LOCAL: You can save these files to your site and update links -->
     
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+  <nav class="article-nav">
     
-<!-- END LOCAL -->
+      <a href="/2018/06/25/react_redux_react-redux/" class="article-nav-link">
+        <strong class="article-nav-caption">前一篇</strong>
+        <div class="article-nav-title">
+          
+            对React、Redux、React-Redux详细剖析
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2018/06/01/redux_source/" class="article-nav-link">
+        <strong class="article-nav-caption">后一篇</strong>
+        <div class="article-nav-title">redux源码分析</div>
+      </a>
+    
+  </nav>
 
-    
-      <style>
-        a.gitment-editor-footer-tip { display: none; }
-        .gitment-container.gitment-footer-container { display: none; }
-      </style>
-    
 
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: 1529596800000,
-            owner: '',
-            repo: '',
-            
-            lang: "zh-CN" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: 'eb21bde420e14e379fcb4b1737942b9a3b3f4ff2',
-            
-                client_id: 'eeb73fed2b04efe10b7f'
-            }});
-        gitment.render('gitment-container');
-      }
+  
 
+  
+    
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: '96347cee2a92b2181647',
+      clientSecret: '1e8027d27b1a3736526189d685e4541a9b6feb9d',
+      repo: 'https://ddduanlian.github.io/',
+      owner: 'ddduanlian',
+      admin: ['ddduanlian'],
+      // id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: md5(location.pathname),
+      distractionFreeMode: false,  // Facebook-like distraction free mode
+      pagerDirection: 'last'
+    })
+
+  gitalk.render('gitalk-container')
+  </script>
+
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2019 段亦心</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/favicon.ico" alt="段亦心"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">主页</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">归档</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">关于</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
       
-      renderGitment();
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
       
-      </script>
-    
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+</aside>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/snap.svg-min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
+  <script src="/js/search.js"></script>
 
 
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
+<script src="/js/ocean.js"></script>
 </body>
 </html>

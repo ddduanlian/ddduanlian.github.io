@@ -1,431 +1,65 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
   
-
-
-<html class="theme-next gemini use-motion" lang="zh-CN">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.4.2" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg?v=6.4.2">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=6.4.2">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=6.4.2">
-
-
-  <link rel="mask-icon" href="/images/favicon.jpg?v=6.4.2" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '6.4.2',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
   
-
-
-
-
-  <meta name="description" content="前言2019届校招陆陆续续开始了，整理了一些高频的面试题。 HTML部分1. 什么是&amp;lt;!DOCTYPE&amp;gt;？ DOCTYPE是html5标准网页声明，且必须声明在HTML文档的第一行。来告知浏览器的解析器用什么文档标准解析这个文档。">
-<meta name="keywords" content="HTML,CSS">
-<meta property="og:type" content="article">
-<meta property="og:title" content="HTML、CSS面试题整理">
-<meta property="og:url" content="http://yoursite.com/2018/08/20/html_css_interview/index.html">
-<meta property="og:site_name" content="天生苑">
-<meta property="og:description" content="前言2019届校招陆陆续续开始了，整理了一些高频的面试题。 HTML部分1. 什么是&amp;lt;!DOCTYPE&amp;gt;？ DOCTYPE是html5标准网页声明，且必须声明在HTML文档的第一行。来告知浏览器的解析器用什么文档标准解析这个文档。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-07T13:35:34.791Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML、CSS面试题整理">
-<meta name="twitter:description" content="前言2019届校招陆陆续续开始了，整理了一些高频的面试题。 HTML部分1. 什么是&amp;lt;!DOCTYPE&amp;gt;？ DOCTYPE是html5标准网页声明，且必须声明在HTML文档的第一行。来告知浏览器的解析器用什么文档标准解析这个文档。">
-
-
-
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2018/08/20/html_css_interview/"/>
-
-
-
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>HTML、CSS面试题整理 | 天生苑</title>
   
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
-
+    <meta name="description" content="I&#39;m a student.😊">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    HTML、CSS面试题整理 |
+    
+    段亦心</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
 </head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-html_css_interview" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
+  <div class="article-inner">
     
+      <header class="article-header">
+        
   
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">天生苑</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-    
-      
-        <p class="site-subtitle">个人博客</p>
-      
-    
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
-  </li>
-
-      
-      
-    </ul>
-  
-
-  
-
-  
-</nav>
-
-
-
-  
-
-
-
-</div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
-
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
+    <h1 class="article-title" itemprop="name">
+      HTML、CSS面试题整理
+    </h1>
   
   
 
-  
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/20/html_css_interview/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="DL">
-      <meta itemprop="description" content="I'm a student.😊">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天生苑">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">HTML、CSS面试题整理
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-20 00:00:00" itemprop="dateCreated datePublished" datetime="2018-08-20T00:00:00+08:00">2018-08-20</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-07 21:35:34" itemprop="dateModified" datetime="2018-10-07T21:35:34+08:00">2018-10-07</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试/" itemprop="url" rel="index"><span itemprop="name">面试</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/08/20/html_css_interview/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/08/20/html_css_interview/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon"
-            >
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-            </span>
-          
-
-          
-
-          
-
-        </div>
       </header>
     
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
+      <div class="article-meta">
+        <a href="/2018/08/20/html_css_interview/" class="article-date">
+  <time datetime="2018-08-19T16:00:00.000Z" itemprop="datePublished">2018-08-20</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/面试/">面试</a>
+  </div>
 
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
       
+
       
 
       
@@ -433,6 +67,7 @@
 <h1 id="HTML部分"><a href="#HTML部分" class="headerlink" title="HTML部分"></a>HTML部分</h1><p><strong>1. 什么是&lt;!DOCTYPE&gt;？</strong></p>
 <p>DOCTYPE是html5标准网页声明，且必须声明在HTML文档的第一行。来告知浏览器的解析器用什么文档标准解析这个文档。<br></p>
 <a id="more"></a>
+
 <p>文档解析类型有：</p>
 <ul>
 <li><code>BackCompat</code>：怪异模式，浏览器使用自己的怪异模式解析渲染页面。（如果没有声明DOCTYPE，默认就是这个模式）</li>
@@ -507,12 +142,20 @@
 </ul>
 <p><strong>11. 如何实现浏览器内多个标签页之间的通信？</strong></p>
 <p><strong>方法一：调用localstorge</strong><br></p>
-<p>标签页1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;input id=&quot;name&quot;&gt;  </span><br><span class="line">&lt;input type=&quot;button&quot; id=&quot;btn&quot; value=&quot;提交&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;  </span><br><span class="line">    $(function()&#123;    </span><br><span class="line">        $(&quot;#btn&quot;).click(function()&#123;    </span><br><span class="line">           var name=$(&quot;#name&quot;).val();    </span><br><span class="line">            localStorage.setItem(&quot;name&quot;, name); //存储需要的信息 </span><br><span class="line">        &#125;);     </span><br><span class="line">   &#125;);    </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>标签页2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;   </span><br><span class="line">    window.addEventListener(&quot;storage&quot;, function(event)&#123;    </span><br><span class="line">	   console.log(event.key + &quot;=&quot; + event.newValue);    </span><br><span class="line">    &#125;);     //使用storage事件监听添加、修改、删除的动作  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>标签页1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;input id=&quot;name&quot;&gt;  </span><br><span class="line">&lt;input type=&quot;button&quot; id=&quot;btn&quot; value=&quot;提交&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;  </span><br><span class="line">    $(function()&#123;    </span><br><span class="line">        $(&quot;#btn&quot;).click(function()&#123;    </span><br><span class="line">           var name=$(&quot;#name&quot;).val();    </span><br><span class="line">            localStorage.setItem(&quot;name&quot;, name); //存储需要的信息 </span><br><span class="line">        &#125;);     </span><br><span class="line">   &#125;);    </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>标签页2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;   </span><br><span class="line">    window.addEventListener(&quot;storage&quot;, function(event)&#123;    </span><br><span class="line">	   console.log(event.key + &quot;=&quot; + event.newValue);    </span><br><span class="line">    &#125;);     //使用storage事件监听添加、修改、删除的动作  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <p><strong>方法二：使用cookie+setInterval</strong><br></p>
 <p>将要传递的信息存储在cookie中，每隔一定时间读取cookie信息，即可随时获取要传递的信息。<br></p>
-<p>标签页1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;    </span><br><span class="line">    $(&quot;#btn&quot;).click(function()&#123;    </span><br><span class="line">        var name=$(&quot;#name&quot;).val();    </span><br><span class="line">        document.cookie=&quot;name=&quot;+name;    </span><br><span class="line">    &#125;);    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>标签页2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> $(function()&#123;   </span><br><span class="line">	function getCookie(key) &#123;    </span><br><span class="line">	   return JSON.parse(&quot;&#123;\&quot;&quot; + document.cookie.replace(/;\s+/gim,&quot;\&quot;,\&quot;&quot;).replace(/=/gim, &quot;\&quot;:\&quot;&quot;) + &quot;\&quot;&#125;&quot;)[key];    </span><br><span class="line">	&#125;     </span><br><span class="line">	setInterval(function()&#123;    </span><br><span class="line">	   console.log(&quot;name=&quot; + getCookie(&quot;name&quot;));    </span><br><span class="line">	&#125;, 10000);    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>标签页1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(function()&#123;    </span><br><span class="line">    $(&quot;#btn&quot;).click(function()&#123;    </span><br><span class="line">        var name=$(&quot;#name&quot;).val();    </span><br><span class="line">        document.cookie=&quot;name=&quot;+name;    </span><br><span class="line">    &#125;);    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>标签页2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> $(function()&#123;   </span><br><span class="line">	function getCookie(key) &#123;    </span><br><span class="line">	   return JSON.parse(&quot;&#123;\&quot;&quot; + document.cookie.replace(/;\s+/gim,&quot;\&quot;,\&quot;&quot;).replace(/=/gim, &quot;\&quot;:\&quot;&quot;) + &quot;\&quot;&#125;&quot;)[key];    </span><br><span class="line">	&#125;     </span><br><span class="line">	setInterval(function()&#123;    </span><br><span class="line">	   console.log(&quot;name=&quot; + getCookie(&quot;name&quot;));    </span><br><span class="line">	&#125;, 10000);    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <h1 id="CSS部分"><a href="#CSS部分" class="headerlink" title="CSS部分"></a>CSS部分</h1><p><strong>1. css盒模型</strong></p>
 <ul>
 <li>IE盒模型 box-sizing:border-box;（怪异模式）；</li>
@@ -532,6 +175,7 @@
 <p>（1）水平方向排列，不会自动换行；<br><br>（2）不可以包含块级元素，但是可以包含其他行内元素或者文本；<br><br>（3）行内元素设置width、height无效(可以设置line-height)，margin和padding上下无效；<br><br>（4）宽度就是它的文字和图片的宽度，不可改变。<br></p>
 <ul>
 <li>行内块级元素在IE8以下的兼容性（块元素模拟inline-block）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    display： inline-block；</span><br><span class="line">    zoom： 1；   //在IE下触发hasLayout</span><br><span class="line">    display：inline；//一旦触发了hasLayout设置display：inline和display：block效果相似。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <blockquote>
@@ -540,15 +184,21 @@
 <p><strong>3. 页面导入样式时，使用link和@import有什么区别？</strong></p>
 <p>（1）link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务；@import属于CSS范畴，只能加载CSS。<br><br>（2）link引用CSS时，在页面载入时同时加载；@import需要页面网页完全载入以后加载。<br><br>（3）link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器（IE5以下）不支持。<br><br>（4）link支持使用Javascript控制DOM去改变样式；而@import不支持。<br></p>
 <p><strong>4. 清除浮动有哪些方式？</strong></p>
-<p>（1）在浮动元素下方添加一个非浮动元素<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;div style=&quot;float:left;width:45%;&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;float:right;width:45%;&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>（1）在浮动元素下方添加一个非浮动元素<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;div style=&quot;float:left;width:45%;&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;float:right;width:45%;&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
 <p>父容器现在必须考虑非浮动子元素的位置，而后者肯定出现在浮动元素下方，所以显示出来，父容器就把所有子元素都包括进去了。这种方法比较简单，但是要在页面中增加冗余标签，违背了语义网的原则。<br></p>
-<p>（2）将父容器也改成浮动定位<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;float:left;&quot;&gt;</span><br><span class="line">    &lt;div style=&quot;float:left;width:45%;&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;float:right;width:45%;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>（2）将父容器也改成浮动定位<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;float:left;&quot;&gt;</span><br><span class="line">    &lt;div style=&quot;float:left;width:45%;&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;float:right;width:45%;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
 <p>这种方法不用修改HTML代码，但是缺点在于父容器变成浮动以后，会影响到后面元素的定位，而且有时候，父容器是定位死的，无法变成浮动。<br></p>
 <p>（3）父容器设置overflow: hidden或者auto。（开启BFC）<br></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;overflow: hidden;&quot;&gt;</span><br><span class="line">    &lt;div style=&quot;float:left;width:45%;&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;float:right;width:45%;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
 <p><code>缺点</code>：一个是IE6不支持，另一个是一旦子元素的大小超过父容器的大小，就会出显示问题。<br></p>
 <p>（4）利用:after伪选择符，在父容器的尾部自动创建一个子元素 ==（推荐这种）== <br></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:after &#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    display: block;</span><br><span class="line">    clear: both;</span><br><span class="line">&#125;</span><br><span class="line">//兼容ie6：激活父元素的&quot;hasLayout&quot;属性，让父元素拥有自己的布局</span><br><span class="line">.clearfix &#123;</span><br><span class="line">    zoom: 1;  //或者height：1%；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><strong>5. 简单介绍BFC和IFC</strong></p>
 <p><strong>BFC —— 块级格式化上下文</strong><br></p>
 <p>（1）BFC触发条件：</p>
@@ -592,8 +242,12 @@
 <p><code>权重算法</code>：(0,0,0,0)  ——&gt; 第一个0对应的是important的个数，第二个0对应的是id选择器的个数，第三个0对应的类选择器的个数，第四个0对应的是标签选择器的个数，合起来就是当前选择器的权重。<br></p>
 <p><code>比较</code>：先从第一个0开始比较，如果第一个0大，那么说明这个选择器的权重高，如果第一个相同，比较第二个，依次类推。<br></p>
 <p><strong>7. 怎么实现水平垂直居中</strong></p>
-<p>（1）行内元素的水平居中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text-align: center;</span><br><span class="line">line-height: 100px;</span><br></pre></td></tr></table></figure></p>
-<p>（2）块级元素水平居中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">margin: 0 auto;</span><br></pre></td></tr></table></figure></p>
+<p>（1）行内元素的水平居中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text-align: center;</span><br><span class="line">line-height: 100px;</span><br></pre></td></tr></table></figure>
+
+<p>（2）块级元素水平居中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">margin: 0 auto;</span><br></pre></td></tr></table></figure>
+
 <p>（3）已知高度宽度元素的水平垂直居中<br></p>
 <ul>
 <li><p>利用绝对定位和负边距实现</p>
@@ -603,6 +257,7 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.container&#123;</span><br><span class="line">    width: 600px;</span><br><span class="line">    height: 600px;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.center&#123;</span><br><span class="line">    width: 300px;</span><br><span class="line">    height: 300px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    right: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    margin: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>（4）未知高度和宽度元素的水平垂直居中</p>
 <ul>
 <li><p>被居中的元素是inline或者inline-block元素</p>
@@ -618,6 +273,7 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.container&#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    height: 600px;</span><br><span class="line">&#125;</span><br><span class="line">.center&#123;</span><br><span class="line">    margin : auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><strong>8. 实现左边定宽，右边自适应布局</strong></p>
 <p>（1）左盒子左浮动，右盒子width=100%<br><br>（2）左盒子左浮动，右盒子margin-left=左盒子宽度<br><br>（3）左盒子左浮动，右盒子右浮动，设置width: calc（100% - 左盒子宽度）<br><br>（4）父容器设置display：flex，右盒子flex：1<br></p>
 <p><strong>9. 实现中间自适应宽度，左右两栏固定宽度布局</strong></p>
@@ -670,485 +326,156 @@
 
       
     </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/20/html_css_interview/" data-id="cjycpq29i000hm02vt8vk9z77"
+         class="article-share-link">分享</a>
       
-        <div class="post-tags">
-          
-            <a href="/tags/HTML/" rel="tag"># HTML</a>
-          
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
-          
-        </div>
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/">HTML</a></li></ul>
 
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/08/10/threeLine_layout/" rel="next" title="两招搞定三栏布局——圣杯布局、双飞翼布局">
-                <i class="fa fa-chevron-left"></i> 两招搞定三栏布局——圣杯布局、双飞翼布局
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/03/school_interview/" rel="prev" title="校招前端面筋整理">
-                校招前端面筋整理 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
-
-  
-    <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
-    </div>
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
-                alt="DL" />
-            
-              <p class="site-author-name" itemprop="name">DL</p>
-              <p class="site-description motion-element" itemprop="description">I'm a student.😊</p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">7</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">11</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/ddduanlian" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:ddduanlian@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  
-                </span>
-              
-            </div>
-          
-
-          
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML部分"><span class="nav-number">2.</span> <span class="nav-text">HTML部分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS部分"><span class="nav-number">3.</span> <span class="nav-text">CSS部分</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">DL</span>
-
-  
-
-  
-</div>
-
-
-
-
-
-
-
-
-
-
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv" title="总访客量">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="site-pv" title="总访问量">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
-
-
-
-
-
-
-
-
-        
-      </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-	
-    
-
-    
   </div>
 
   
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.4.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.4.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.4.2"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.2"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-<!-- LOCAL: You can save these files to your site and update links -->
     
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+  <nav class="article-nav">
     
-<!-- END LOCAL -->
+      <a href="/2018/10/03/school_interview/" class="article-nav-link">
+        <strong class="article-nav-caption">前一篇</strong>
+        <div class="article-nav-title">
+          
+            校招前端面筋整理
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2018/08/10/threeLine_layout/" class="article-nav-link">
+        <strong class="article-nav-caption">后一篇</strong>
+        <div class="article-nav-title">两招搞定三栏布局——圣杯布局、双飞翼布局</div>
+      </a>
+    
+  </nav>
 
-    
-      <style>
-        a.gitment-editor-footer-tip { display: none; }
-        .gitment-container.gitment-footer-container { display: none; }
-      </style>
-    
 
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: 1534694400000,
-            owner: '',
-            repo: '',
-            
-            lang: "zh-CN" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: 'eb21bde420e14e379fcb4b1737942b9a3b3f4ff2',
-            
-                client_id: 'eeb73fed2b04efe10b7f'
-            }});
-        gitment.render('gitment-container');
-      }
+  
 
+  
+    
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: '96347cee2a92b2181647',
+      clientSecret: '1e8027d27b1a3736526189d685e4541a9b6feb9d',
+      repo: 'https://ddduanlian.github.io/',
+      owner: 'ddduanlian',
+      admin: ['ddduanlian'],
+      // id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: md5(location.pathname),
+      distractionFreeMode: false,  // Facebook-like distraction free mode
+      pagerDirection: 'last'
+    })
+
+  gitalk.render('gitalk-container')
+  </script>
+
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2019 段亦心</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/favicon.ico" alt="段亦心"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">主页</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">归档</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">关于</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
       
-      renderGitment();
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
       
-      </script>
-    
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+</aside>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/snap.svg-min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
+  <script src="/js/search.js"></script>
 
 
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
+<script src="/js/ocean.js"></script>
 </body>
 </html>
